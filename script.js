@@ -1,13 +1,14 @@
-
-let income = 1000000
 let investmentPercentage = 40
 let needsPercentage = 40
 let wantsPercentage = 20
 
 function splitIncome (totalIncome) {
 
+    let fixedTotal = Math.trunc(totalIncome)
+    let floatTotal = totalIncome - fixedTotal
+    
     function calculateSplit (typeOf) {
-        return typeOf * totalIncome / 100
+        return typeOf * fixedTotal / 100
     }
 
     let investment = calculateSplit(investmentPercentage)
@@ -17,7 +18,7 @@ function splitIncome (totalIncome) {
     let floatNeeds = needs - (Math.trunc(needs))
     let floatWants = wants - (Math.trunc(wants))
 
-    let fixedInvestment = investment + floatNeeds + floatWants
+    let fixedInvestment = investment + floatNeeds + floatWants + floatTotal
     let fixedNeeds = needs - floatNeeds
     let fixedWants = wants - floatWants
 
@@ -33,4 +34,4 @@ function splitIncome (totalIncome) {
     `)
 }
 
-splitIncome(4569.03)
+splitIncome(5024.15)
